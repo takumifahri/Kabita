@@ -1,32 +1,29 @@
 <?php 
-    require 'function.php';
-        
-     $id = $data["id"];
-     $NIM = htmlspecialchars( $data["NIM"]);
-     $Nama = htmlspecialchars( $data["Nama"]);
-     $email = htmlspecialchars( $data["email"]);
-     $Jurusan = htmlspecialchars( $data["Jurusan"]);
-     $GambarLama = htmlspecialchars( $data["gambarLama"]);
- 
-     // Pengecekan gambar lama atau gambar baru
-     if($_FILES['gambar']['error'] === 4){
-         $Gambar = $GambarLama;
-     } else {
-         $Gambar = upload();
-     }
-   
- 
-     $query = "UPDATE mahasiswa SET
-                 NIM = '$NIM',
-                 Nama = '$Nama',
-                 email = '$email',
-                 Jurusan = '$Jurusan',
-                 Gambar = '$Gambar'
-                 WHERE id = $id;
-                 ";
-    
- 
-     mysqli_query($db_mahasiswa, $query);
- 
-     return mysqli_affected_rows($db_mahasiswa);
+    require'function.php';
+
+    // ambil data di url
+    $id = $_GET["id_makanan"];
+    // Query Data mahasiswa berdasarkan ID
+    $ediKbt = query("SELECT * FROM makanan WHERE id_makanan = $id")[0];
+
+    if (isset($_POST["submit"])){
+
+        if(Edit($_POST) > 0){
+            echo "
+                <script>
+                    alert('Data berhasil ditambahkan');
+                    document.location.href = 'index.php';
+                </script>"
+            ;
+        } else {
+            echo "
+                <script>
+                    alert('Data berhasil ditambahkan');
+                    document.location.href = 'index.php';
+                </script>"
+            ;
+        };
+
+    }
+
 ?>

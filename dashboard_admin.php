@@ -43,10 +43,11 @@ if (isset($_POST["tambah"])) {
 //             </script>"
 //         ;
 //     };
-//     header("Location: dashboard_admin.php");  
+//     header("Location: dashboard_admin.php");
 // }
 
-
+    // EDIT 
+    
 ?>
 
 ?>
@@ -218,10 +219,15 @@ if (isset($_POST["tambah"])) {
                     </nav>
                 </div>
             </div>
+
+
+            <!-- DATA MENU -->
             <section id="dashboard" class="font-poppins w-full flex flex-col mt-4 px-4 lg:px-36 pt-10 pb-20 bg-gray-100">
                 <div class="flex w-full mb-8">
                     <h1 class="text-3xl">Data Menu</h1>
                 </div>
+
+                <!-- ADD DATA -->
                 <div class="flex flex-col gap-3 bg-white rounded-md p-8">
                     <!-- Open the modal using ID.showModal() method -->
                     <button class="text-sm text-white px-2 py-2 bg-first hover:bg-secondary rounded-md w-32" onclick="modalTambahData.showModal()">Tambah Data</button>
@@ -296,7 +302,7 @@ if (isset($_POST["tambah"])) {
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="stok">Stok</label>
-                                    <input type="stok" name="Stok" id="stok" placeholder="Masukan stok" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
+                                    <input type="number" name="Stok" id="stok" placeholder="Masukan stok" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="gambar">Gambar</label>
@@ -315,32 +321,31 @@ if (isset($_POST["tambah"])) {
 
                     <!-- Modal Edit Data  -->
                     <dialog id="modalEditData" class="modal" >
-                        <div class="modal-box">
+                        <div class="edit-box modal-box">
                             <h3 class="font-bold text-lg">Form Edit Data</h3>
                             <form action="" method="post" enctype="multipart/form-data" class="flex flex-col mt-4 w-full gap-2 rounded-lg transition duration-300 font-poppins">
-                                <input type="hidden" name="id_makanan" value="<?= $kbt["id_makanan"];?>">
-                                <input type="hidden" name="gambarLama" value="<?= $kbt["Gambar"];?>">
+                                <input type="hidden" name="id_makanan">
+                                <input type="hidden" name="gambarLama" >
                                 <div class="flex flex-col">
                                     <label for="nama">Nama</label>
-                                    <input type="text" name="nama_makanan" id="nama" placeholder="Masukan nama menu" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first" value="<?= $kbt["nama_makanan"]; ?>">
+                                    <input type="text" name="nama_makanan" id="nama" placeholder="Masukan nama menu" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="tipe">Tipe</label>
-
                                     <select name="tipe_menu" id="tipe" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
-                                        <option value="Pilih" selected disabled>Pilih</option>
-                                        <option value="Makanan" name="Makanan" selected>Makanan</option>
-                                        <option value="Minuman" name="Minuman">Minuman</option>
+                                        <option name="tipe_menu" value="Pilih"  >Pilih</option>
+                                        <option name="tipe_menu" value="Makanan" name="Makanan"  >Makanan</option>
+                                        <option name="tipe_menu" value="Minuman" name="Minuman" >Minuman</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea name="Deskripsi" id="deskripsi" placeholder="Masukan deskripsi menu" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first" value="<?= $kbt["Deskripsi"]; ?>"></textarea>
+                                    <textarea name="Deskripsi" id="deskripsi" placeholder="Masukan deskripsi menu" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first"></textarea>
                                 </div>  
                                 
                                 <div class="flex flex-col">
                                     <label for="harga">Harga</label>
-                                    <input type="text" name="harga" id="harga" placeholder="Masukan nomor harga anda" class="input-number w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first" value="20000" value="<?= $kbt["harga"]; ?>">
+                                    <input type="text" name="harga" id="harga" placeholder="Masukan nomor harga anda" class="input-number w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
                                     <script>
                                         function formatRupiah(angka, prefix) {
                                             var number_string = angka.replace(/[^,\d]/g, '').toString(), //Menghapus huruf
@@ -386,8 +391,8 @@ if (isset($_POST["tambah"])) {
                                     </script>
                                 </div>
                                 <div class="flex flex-col">
-                                    <label for="Stok">Stok</label>
-                                    <input type="number" name="Stok" id="Stok" placeholder="Masukan stok" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first" value="20" value="<?= $kbt["Stok"]; ?>
+                                    <label for="stok">Stok</label>
+                                    <input type="number" name="Stok" id="stok" placeholder="Masukan stok" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first"  
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="gambar">Gambar</label>
@@ -395,7 +400,7 @@ if (isset($_POST["tambah"])) {
                                     <input type="file" name="Gambar" id="gambar" placeholder="gambar" class="w-full rounded-md bg-gray-100 file:mr-5 file:py-1 file:px-3 file:border-none file:w-full file:bg-gray-100 file:text-stone-700 hover:file:cursor-pointer hover:file:bg-red-50 hover:file:text-first focus:outline-none focus:ring focus:ring-first focus-border-first">
                                 </div>
                                 <div class="flex flex-col mt-2">
-                                    <button type="submit" name="Edit" class="p-2 rounded-md bg-first text-white hover:bg-secondary">Edit Data</button>
+                                    <button type="submit" name="Edit" id="EditData" class="p-2 rounded-md bg-first text-white hover:bg-secondary">Edit Data</button>
                                 </div>
                             </form>
                         </div>
@@ -404,44 +409,44 @@ if (isset($_POST["tambah"])) {
                         </form>
                     </dialog>
                     <!-- Modal Hapus Data -->
-                    <dialog id="modalHapusData" class="modal">
+                    <!-- <dialog id="modalHapusData" class="modal">
                         <div class="modal-box">
                             <h3 class="font-bold text-lg">Apakah anda yakin ingin menghapus?</h3>
                             <div class="flex items-center justify-center h-[100px]">
                                 <i class="inline fa-solid fa-warning fa-2xl text-[100px]"></i>
                             </div>
-                            <form action="" class="flex flex-col mt-4 w-full gap-2 rounded-lg transition duration-300 font-poppins">
+                            <form action="" method="post" class="flex flex-col mt-4 w-full gap-2 rounded-lg transition duration-300 font-poppins">
                                 <div class="flex gap-3 w-full">
                                     <button type="submit" class="w-full p-2 rounded-md border-2 border-first bg-white text-first hover:bg-first hover:text-white" >Tidak</button>
-                                    <button type="submit" class="w-full p-2 rounded-md bg-first text-white hover:bg-secondary"  onclick="document.location.href='Delete.php?id_makanan=<?= $kbt['id_makanan']; ?>'">Ya</button>
+                                    <button type="submit" class="w-full p-2 rounded-md bg-first text-white hover:bg-secondary"><a href="href='Delete.php?id_makanan">Ya</a></button>
                                 </div>
                             </form>
                         </div>
                         <form method="dialog" class="modal-backdrop">
                             <button>close</button>
                         </form>
-                    </dialog>
+                    </dialog> -->
                     <div class="overflow-x-auto">
                         
-                        
-                            <table class="table border-2">
-                                <!-- head -->
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nama</th>
-                                        <th class="w-52">Deskripsi</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                        <th>Gambar</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
+                        <table class="table border-2">
+                            <!-- head -->
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama</th>
+                                    <th class="w-52">Deskripsi</th>
+                                    <th>Harga</th>
+                                    <th>Stok</th>
+                                    <th>Gambar</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
 
-                                <tbody>
-                                    <!-- row 1 -->
+                            <tbody>
+                                <!-- row 1 -->
                                 <?= $i = 1?>
                                 <?php foreach($db_kabita as $kbt) : ?>
+                                    
                                     <tr>
                                         <td><?= $i;?></td>
                                         <td><?= $kbt["nama_makanan"];?></td>
@@ -453,19 +458,22 @@ if (isset($_POST["tambah"])) {
                                         </td>
                                         <td>
                                             <!--  btn utk mengedit dan mendelete -->
-                                            <button onclick="modalEditData.showModal()
-                                            " class="w-8 h-8 rounded-md text-white bg-green-600 hover:bg-green-700">
-                                                <i class="fa-solid fa-pencil"></i>
+                                            <button onclick="modalEditData.showModal()" class="w-8 h-8 rounded-md text-white bg-green-600 hover:bg-green-700">
+                                                <a  data-target="#modalEditData" id="EditData" data-id="<?= $kbt["id_makanan"]?>" data-nama="<?= $kbt["nama_makanan"]?>" data-deskripsi="<?= $kbt["Deskripsi"]?>" data-harga="<?= $kbt["harga"]?>" data-stok="<?= $kbt["Stok"]?>" data-image="image/<?= $kbt["gambar"];?>">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </a>
                                             </button>
-                                            <button onclick="modalHapusData.showModal()" class="w-8 h-8 rounded-md text-white bg-red-600 hover:bg-red-700">
-                                                <i class="fa-solid fa-trash"></i>
+
+
+                                            <button class="w-8 h-8 rounded-md text-white bg-red-600 hover:bg-red-700">
+                                                <a href="Delete.php?id_makanan=<?= $kbt["id_makanan"];?>" onclick="return confirm('Kamu yakin ingin menghapus menu ini?')"><i class="fa-solid fa-trash"></i></a>
                                             </button>
                                         </td>
                                     </tr>
                                     <?php $i++?>
                                 <?php endforeach;?>
-                                </tbody>
-                            </table>
+                            </tbody>
+                        </table>
                         
                     </div>
                 </div>
@@ -475,9 +483,33 @@ if (isset($_POST["tambah"])) {
 
     <!-- Main JS  -->
     <script src="js/app.js"></script>
+                                    
+    <!-- JQUERY 3.7.1 JS  -->
+    <script src="js/jquery-3.7.1.min.js"></script>
 
     <!-- Tailwind Config -->
     <script src="js/tailwind.config.js"></script>
+    
+    <!-- Jquery script nya utk modals -->
+    <script>
+        $(document).on("click", "#EditData", function(){
+            let id = $(this).data('id');
+            let nama = $(this).data('nama');
+            let tipe = $(this).data('tipe');
+            let Deskripsi = $(this).data('deskripsi');
+            let Stok = $(this).data('stok');
+            let Harga = $(this).data('harga');
+            let gambar = $(this).data('gambar');
+
+            $("#id_makanan").val($(this).data('id_makanan'));
+            $(".edit-box #nama").val($(this).data('nama'));
+            $(".edit-box #tipe").val($(this).data('tipe'));
+            $(".edit-box #deskripsi").val($(this).data('deskripsi'));
+            $(".edit-box #stok").val($(this).data('stok'));
+            $(".edit-box #harga").val($(this).data('harga'));
+            $(".edit-box #gambar").val($(this).data('gambar'));
+        })
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {

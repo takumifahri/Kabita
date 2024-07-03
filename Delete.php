@@ -2,10 +2,10 @@
 
     require 'function.php';
     
-    $id_to_delete= $_GET["id_makanan"];
+    $id= $_GET["id_makanan"];
 
     // function hapus
-    if (Delete($id_to_delete) >0) {
+    if (Delete($id) > 0) {
         echo "
             <script>
                 alert('Data berhasil dihapus');

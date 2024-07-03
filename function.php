@@ -37,11 +37,6 @@ function Add($data) {
         return false;
     }
 
-    
-    // $query = "INSERT INTO makanan
-    //             VALUES
-    //             ('', '$nama_makanan', '$harga', '$tipe_menu', '$Deskripsi', '$Stok', '$Gambar')";
-
     // var_dump($db_kabita); die;
     mysqli_query($db_kabita,
      "INSERT INTO makanan
@@ -133,18 +128,19 @@ function upload(){
     $namaFileBaru = uniqid();
     $namaFileBaru .= '.';
     $namaFileBaru .= $extensionGambar;
-
+8
     move_uploaded_file( $tmpName,'image/' . $namaFileBaru );
 
     return $namaFileBaru;
 }
 
 // function hapus
-function Delete($id_to_delete){
-    $id_to_delete = "id_makanan"; // The ID of the record you want to delete
+function Delete($id){
+    // $id = "id_makanan"; // The ID of the record you want to delete
 
    global $db_kabita;
-   mysqli_query($db_kabita, "DELETE FROM makanan WHERE id_makanan = $id_to_delete");
+   mysqli_query($db_kabita, "DELETE FROM makanan WHERE id_makanan = $id");
+
 
    return mysqli_affected_rows($db_kabita);
 }
@@ -168,7 +164,7 @@ function Edit($data) {
    }
  
 
-   $query = "UPDATE kabita SET
+   $query = "UPDATE makanan SET
                nama_makanan = '$nama_makanan',
                harga = '$harga',
                tipe_menu = '$tipe_menu',
