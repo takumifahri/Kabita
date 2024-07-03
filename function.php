@@ -128,7 +128,7 @@ function upload(){
     $namaFileBaru = uniqid();
     $namaFileBaru .= '.';
     $namaFileBaru .= $extensionGambar;
-8
+
     move_uploaded_file( $tmpName,'image/' . $namaFileBaru );
 
     return $namaFileBaru;
