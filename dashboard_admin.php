@@ -47,7 +47,22 @@ if (isset($_POST["tambah"])) {
 // }
 
     // EDIT 
-    
+    if (isset($_POST["update"])) {
+
+        if (UpdateData($_POST) > 0) {
+            echo "
+                    <script>
+                        alert('Data berhasil ditambahkan');
+                    </script>";
+        } else {
+            echo "
+                    <script>
+                        alert('Data gagal di tambahkan');
+                    </script>";
+        };
+        
+        header("Location: dashboard_admin.php");  
+    }
 ?>
 
 ?>
@@ -244,9 +259,9 @@ if (isset($_POST["tambah"])) {
                                     <label for="tipe">Tipe</label>
                                     <!-- tipe data utk dropdown adalah Enum -->
                                     <select name="tipe_menu" id="tipe" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
-                                        <option  name="tipe_menu" value="Pilih" selected disabled>Pilih</option>
-                                        <option name="tipe_menu" value="Makanan">Makanan</option>
-                                        <option name="tipe_menu" value="Minuman">Minuman</option>
+                                        <option  value="Pilih" selected disabled>Pilih</option>
+                                        <option value="Makanan">Makanan</option>
+                                        <option value="Minuman">Minuman</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
@@ -255,7 +270,7 @@ if (isset($_POST["tambah"])) {
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="harga">Harga</label>
-                                    <input type="text" name="harga" id="harga" placeholder="Masukan nomor harga anda" class="input-number w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
+                                    <input type="number" name="harga" id="harga" placeholder="Masukan nomor harga anda" class="input-number w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
                                     <script>
                                         function formatRupiah(angka, prefix) {
                                             var number_string = angka.replace(/[^,\d]/g, '').toString(), //Menghapus huruf
@@ -333,7 +348,7 @@ if (isset($_POST["tambah"])) {
                                 <div class="flex flex-col">
                                     <label for="tipe">Tipe</label>
                                     <select name="tipe_menu" id="tipe" class="w-full p-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-first focus-border-first">
-                                        <option name="tipe_menu" value="Pilih"  >Pilih</option>
+                                        <option name="tipe_menu" value=""  >Pilih</option>
                                         <option name="tipe_menu" value="Makanan" name="Makanan"  >Makanan</option>
                                         <option name="tipe_menu" value="Minuman" name="Minuman" >Minuman</option>
                                     </select>
@@ -400,7 +415,7 @@ if (isset($_POST["tambah"])) {
                                     <input type="file" name="Gambar" id="gambar" placeholder="gambar" class="w-full rounded-md bg-gray-100 file:mr-5 file:py-1 file:px-3 file:border-none file:w-full file:bg-gray-100 file:text-stone-700 hover:file:cursor-pointer hover:file:bg-red-50 hover:file:text-first focus:outline-none focus:ring focus:ring-first focus-border-first">
                                 </div>
                                 <div class="flex flex-col mt-2">
-                                    <button type="submit" name="Edit" id="EditData" class="p-2 rounded-md bg-first text-white hover:bg-secondary">Edit Data</button>
+                                    <button type="submit" name="update" id="EditData" class="p-2 rounded-md bg-first text-white hover:bg-secondary">Edit Data</button>
                                 </div>
                             </form>
                         </div>
@@ -459,7 +474,7 @@ if (isset($_POST["tambah"])) {
                                         <td>
                                             <!--  btn utk mengedit dan mendelete -->
                                             <button onclick="modalEditData.showModal()" class="w-8 h-8 rounded-md text-white bg-green-600 hover:bg-green-700">
-                                                <a  data-target="#modalEditData" id="EditData" data-id="<?= $kbt["id_makanan"]?>" data-nama="<?= $kbt["nama_makanan"]?>" data-deskripsi="<?= $kbt["Deskripsi"]?>" data-harga="<?= $kbt["harga"]?>" data-stok="<?= $kbt["Stok"]?>" data-image="image/<?= $kbt["gambar"];?>">
+                                                <a  data-target="#modalEditData" id="EditData" data-id="<?= $kbt["id_makanan"]?>" data-nama="<?= $kbt["nama_makanan"]?>" data-tipe="<?= $kbt["tipe_menu"]?>"  data-deskripsi="<?= $kbt["Deskripsi"]?>" data-harga="<?= $kbt["harga"]?>" data-stok="<?= $kbt["Stok"]?>" data-image="image/<?= $kbt["gambar"];?>">
                                                     <i class="fa-solid fa-pencil"></i>
                                                 </a>
                                             </button>

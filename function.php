@@ -146,15 +146,19 @@ function Delete($id){
 }
 
 // Function edit
-function Edit($data) {
-   global $db_kabita;
+function UpdateData($data) {
+    global $db_kabita;
+    
+
    $id = $data["id_makanan"];
    $nama_makanan = htmlspecialchars( $data["nama_makanan"]);
    $harga = htmlspecialchars( $data["harga"]);
-   $tipe_menu = htmlspecialchars( $data["tipe_menu"]);
+   $tipe_menu = htmlspecialchars($data["tipe_menu"]);
+   
+   
    $Deskripsi = htmlspecialchars( $data["Deskripsi"]);
    $Stok = htmlspecialchars( $data["Stok"]);
-   $GambarLama = htmlspecialchars( $data["gambarLama"]);
+   $GambarLama =  $data["gambarLama"];
 
    // Pengecekan gambar lama atau gambar baru
    if($_FILES['Gambar']['error'] === 4){
@@ -162,8 +166,7 @@ function Edit($data) {
    } else {
        $Gambar = upload();
    }
- 
-
+   
    $query = "UPDATE makanan SET
                nama_makanan = '$nama_makanan',
                harga = '$harga',
@@ -173,12 +176,14 @@ function Edit($data) {
                Gambar = '$Gambar'
                WHERE id_makanan = $id;
                ";
-  
-
+    
+    
+   
    mysqli_query($db_kabita, $query);
 
    return mysqli_affected_rows($db_kabita);
 }
+
 
 // Function Search
 function Search($keyword){
