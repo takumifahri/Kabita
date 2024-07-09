@@ -8,6 +8,8 @@ session_start();
 
 require 'function.php';
 
+$db_kabita = mysqli_connect("localhost", "root", "", "kabita");
+
 $db_kabita = query("SELECT * FROM makanan "); // ASC dari kecil ke besar, DESC dari besar ke keci
 
 
@@ -28,23 +30,7 @@ if (isset($_POST["tambah"])) {
     header("Location: dashboard_admin.php");  
 }
 
-// if (isset($_POST["Edit"])){
 
-//     if(Edit($_POST) > 0){
-//         echo "
-//             <script>
-//                 alert('Data berhasil diubah');
-//             </script>"
-//         ;
-//     } else {
-//         echo "
-//             <script>    
-//                 alert('Data gagal diubah');
-//             </script>"
-//         ;
-//     };
-//     header("Location: dashboard_admin.php");
-// }
 
     // EDIT 
     if (isset($_POST["update"])) {
@@ -419,6 +405,7 @@ if (isset($_POST["tambah"])) {
                                 </div>
                             </form>
                         </div>
+
                         <form method="dialog" class="modal-backdrop">
                             <button>close</button>
                         </form>

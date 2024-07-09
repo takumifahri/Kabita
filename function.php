@@ -146,7 +146,7 @@ function Delete($id){
 }
 
 // Function edit
-function UpdateData($data) {
+function UpdateData($data) { // ini functionya
     global $db_kabita;
     
 
@@ -154,8 +154,6 @@ function UpdateData($data) {
    $nama_makanan = htmlspecialchars( $data["nama_makanan"]);
    $harga = htmlspecialchars( $data["harga"]);
    $tipe_menu = htmlspecialchars($data["tipe_menu"]);
-   
-   
    $Deskripsi = htmlspecialchars( $data["Deskripsi"]);
    $Stok = htmlspecialchars( $data["Stok"]);
    $GambarLama =  $data["gambarLama"];
@@ -174,12 +172,12 @@ function UpdateData($data) {
                Deskripsi = '$Deskripsi',
                Stok = '$Stok',
                Gambar = '$Gambar'
-               WHERE id_makanan = $id;
+               WHERE id_makanan = $id
                ";
     
     
    
-   mysqli_query($db_kabita, $query);
+   mysqli_query($db_kabita, $query); // oni line 180 nya
 
    return mysqli_affected_rows($db_kabita);
 }
