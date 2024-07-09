@@ -149,7 +149,6 @@ function Delete($id){
 function UpdateData($data) { // ini functionya
     global $db_kabita;
     
-
    $id = $data["id_makanan"];
    $nama_makanan = htmlspecialchars( $data["nama_makanan"]);
    $harga = htmlspecialchars( $data["harga"]);
@@ -177,7 +176,7 @@ function UpdateData($data) { // ini functionya
     
     
    
-   mysqli_query($db_kabita, $query); // oni line 180 nya
+   mysqli_query($db_kabita, $query); // ini line 180 nya
 
    return mysqli_affected_rows($db_kabita);
 }
