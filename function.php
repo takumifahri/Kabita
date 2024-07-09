@@ -174,8 +174,6 @@ function UpdateData($data) { // ini functionya
                WHERE id_makanan = $id
                ";
     
-    
-   
    mysqli_query($db_kabita, $query); // ini line 180 nya
 
    return mysqli_affected_rows($db_kabita);
