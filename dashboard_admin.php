@@ -324,7 +324,7 @@ if (isset($_POST["tambah"])) {
                     <dialog id="modalEditData" class="modal" >
                         <div class="edit-box modal-box">
                             <h3 class="font-bold text-lg">Form Edit Data</h3>
-                            <form action="" method="post" enctype="multipart/form-data" class="flex flex-col mt-4 w-full gap-2 rounded-lg transition duration-300 font-poppins">
+                            <form action="" method="POST" enctype="multipart/form-data" class="flex flex-col mt-4 w-full gap-2 rounded-lg transition duration-300 font-poppins">
                                 <input type="hidden" name="id_makanan">
                                 <input type="hidden" name="gambarLama" >
                                 <div class="flex flex-col">

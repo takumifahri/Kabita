@@ -4,22 +4,22 @@
     // ambil data di url
     $id = $_GET["id_makanan"];
     // Query Data mahasiswa berdasarkan ID
-    $ediKbt = query("SELECT * FROM makanan WHERE id_makanan = $id")[0];
+    $kbt = query("SELECT * FROM makanan WHERE id_makanan = $id")[0];
 
-    if (isset($_POST["submit"])){
+    if (isset($_POST["update"])){
 
-        if(Edit($_POST) > 0){
+        if(UpdateData($_POST) > 0){
             echo "
                 <script>
                     alert('Data berhasil ditambahkan');
-                    document.location.href = 'index.php';
+                    document.location.href = 'dashboard_admin.php';
                 </script>"
             ;
         } else {
             echo "
                 <script>
                     alert('Data berhasil ditambahkan');
-                    document.location.href = 'index.php';
+                    document.location.href = 'dashboard_admin.php';
                 </script>"
             ;
         };

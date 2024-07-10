@@ -126,10 +126,10 @@ function UpdateData($data) { // ini functionya
     
    $id = $data["id_makanan"];
    $nama_makanan = ( $data["nama_makanan"]);
-   $harga = ( $data["harga"]);
-   $tipe_menu = ($data["tipe_menu"]);
-   $Deskripsi = ( $data["Deskripsi"]);
-   $Stok = ( $data["Stok"]);
+   $harga =  $data["harga"];
+   $tipe_menu = $data["tipe_menu"];
+   $Deskripsi =  $data["Deskripsi"];
+   $Stok =  $data["Stok"];
    $GambarLama =  $data["gambarLama"];
 
    // Pengecekan gambar lama atau gambar baru
@@ -146,7 +146,7 @@ function UpdateData($data) { // ini functionya
                Deskripsi = '$Deskripsi',
                Stok = '$Stok',
                Gambar = '$Gambar'
-               WHERE id_makanan = '$id';
+               WHERE id_makanan = $id;
                ";
     
 //    printf($query);
