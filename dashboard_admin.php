@@ -168,7 +168,7 @@ if (isset($_POST["tambah"])) {
                                     <path fill-rule="evenodd" d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.987h8.418l.33.987a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.04 16.5l.5-1.5h6.42l.5 1.5H8.29zm7.46-12a.75.75 0 00-1.5 0v6a.75.75 0 001.5 0v-6zm-3 2.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V9zm-3 2.25a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            Dashboard
+                            <a href="dashboard.php">Dashboard</a>
                         </div>
                         <div role="button" class="text-first bg-gray-200 font-poppins flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-200 hover:text-first focus:bg-gray-200 focus:text-first active:bg-gray-200 active:text-first">
                             <div class="grid mr-4 place-items-center">
@@ -178,17 +178,17 @@ if (isset($_POST["tambah"])) {
                             </div>
                             Data Menu
                         </div>
-                        <div role="button" class="font-poppins flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-200 hover:text-first focus:bg-gray-200 focus:text-first active:bg-gray-200 active:text-first">
+                        <!-- <div role="button" class="font-poppins flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-200 hover:text-first focus:bg-gray-200 focus:text-first active:bg-gray-200 active:text-first">
                             <div class="grid mr-4 place-items-center">
                                 <i class="fa-solid fa-money-bill-transfer"></i>
                             </div>
                             Data Transaksi
-                        </div>
+                        </div> -->
                         <div role="button" class="font-poppins flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-200 hover:text-first focus:bg-gray-200 focus:text-first active:bg-gray-200 active:text-first">
                             <div class="grid mr-4 place-items-center">
                                 <i class="fa-solid fa-comments"></i>
                             </div>
-                            Kritik dan Saran
+                            <a href="index.php#kritik">Kritik dan Saran</a>
                         </div>
                         <!-- <div role="button"
                             class="flex font-poppins items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-200 hover:text-first focus:bg-gray-200 focus:text-first active:bg-gray-200 active:text-first">
@@ -407,7 +407,10 @@ if (isset($_POST["tambah"])) {
                         </div>
 
                         <form method="dialog" class="modal-backdrop">
-                            <button>close</button>
+                            <div class="flex flex-col mt-2">
+                                <button class="p-2 rounded-md bg-first text-white hover:bg-secondary">close</button>  
+                            </div>
+                            
                         </form>
                     </dialog>
                     <!-- Modal Hapus Data -->
@@ -446,7 +449,7 @@ if (isset($_POST["tambah"])) {
 
                             <tbody>
                                 <!-- row 1 -->
-                                <?= $i = 1?>
+                                <input type="hidden" <?= $i = 1?>>
                                 <?php foreach($db_kabita as $kbt) : ?>
                                     
                                     <tr>
@@ -460,11 +463,17 @@ if (isset($_POST["tambah"])) {
                                         </td>
                                         <td>
                                             <!--  btn utk mengedit dan mendelete -->
-                                            <button onclick="modalEditData.showModal()" class="w-8 h-8 rounded-md text-white bg-green-600 hover:bg-green-700">
-                                                <a  data-target="#modalEditData" id="EditData" data-id="<?= $kbt["id_makanan"]?>" data-nama="<?= $kbt["nama_makanan"]?>" data-tipe="<?= $kbt["tipe_menu"]?>"  data-deskripsi="<?= $kbt["Deskripsi"]?>" data-harga="<?= $kbt["harga"]?>" data-stok="<?= $kbt["Stok"]?>" data-image="image/<?= $kbt["gambar"];?>">
+                                            <button onclick="modalEditData.showModal()" class="w-8 h-8 rounded-md text-white bg-green-600 hover:bg-green-700"  data-target="#modalEditData" id="EditData" data-id="<?= $kbt["id_makanan"]?>" data-nama="<?= $kbt["nama_makanan"]?>" data-tipe="<?= $kbt["tipe_menu"]?>"  data-deskripsi="<?= $kbt["Deskripsi"]?>" data-harga="<?= $kbt["harga"]?>" data-stok="<?= $kbt["Stok"]?>" data-image="image/<?= $kbt["gambar"];?>">
+                                                <a>
                                                     <i class="fa-solid fa-pencil"></i>
                                                 </a>
                                             </button>
+
+                                            <!-- <button  class="w-8 h-8 rounded-md text-white bg-green-600 hover:bg-green-700 EditBtn">
+                                               
+                                                <i class="fa-solid fa-pencil"></i>
+                                                
+                                            </button> -->
 
 
                                             <button class="w-8 h-8 rounded-md text-white bg-red-600 hover:bg-red-700">
@@ -494,6 +503,14 @@ if (isset($_POST["tambah"])) {
     
     <!-- Jquery script nya utk modals -->
     <script>
+        // $(document).ready(function(){
+        //     $(".EditBtn").click(function(){
+        //         $("#modalEditData").modal('show');
+
+        //     });
+        // });
+        //id="modalEditData"
+
         $(document).on("click", "#EditData", function(){
             let id = $(this).data('id');
             let nama = $(this).data('nama');

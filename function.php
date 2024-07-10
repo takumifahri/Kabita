@@ -24,6 +24,7 @@ function Add($data) {
         exit();
     }
 
+    // global $db_kabita; 
 
     $nama_makanan = htmlspecialchars( $data["nama_makanan"]);
     $harga = htmlspecialchars( $data["harga"]);
@@ -47,38 +48,6 @@ function Add($data) {
 
 
 }
-
-// function add($data){
-//     global $db_kabita;
- 
-//     // // Check if 'Stok' key exists in $data array
-//     // if (!isset($data['Stok'])) {
-//     //     echo "<script>
-//     //              alert('No stock data was provided');
-//     //          </script>";
-//     //     return false;
-//     // } 
-//     $nama_makanan = htmlspecialchars( $data["nama_makanan"]);
-//     $harga = htmlspecialchars( $data["harga"]);
-//     $tipe_menu = htmlspecialchars( $data["tipe_menu"]);
-//     $Deskripsi = htmlspecialchars( $data["Deskripsi"]); 
-//     $Stok = htmlspecialchars( $data["Stok"]);
- 
-//     // Kita buat fungsi upload gambar
-//     $Gambar = upload();
-//     if(!$Gambar) {
-//         return false;
-//     }
- 
-//     $query = "INSERT INTO makanan
-//                 VALUES
-//                 ('', '$nama_makanan', '$harga', '$tipe_menu', '$Deskripsi', '$Stok', '$Gambar')";
-    
-//     mysqli_query($db_kabita, $query);
- 
-//     return mysqli_affected_rows($db_kabita);
-//  }
-// Function upload
 
 function upload(){
     // Check if 'gambar' key exists in $_FILES array
@@ -147,14 +116,20 @@ function Delete($id){
 
 // Function edit
 function UpdateData($data) { // ini functionya
-    global $db_kabita;
+    // global $db_kabita;
+    $db_kabita = mysqli_connect('localhost', 'username', '', 'kabita');
+
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        exit();
+    }
     
    $id = $data["id_makanan"];
-   $nama_makanan = htmlspecialchars( $data["nama_makanan"]);
-   $harga = htmlspecialchars( $data["harga"]);
-   $tipe_menu = htmlspecialchars($data["tipe_menu"]);
-   $Deskripsi = htmlspecialchars( $data["Deskripsi"]);
-   $Stok = htmlspecialchars( $data["Stok"]);
+   $nama_makanan = ( $data["nama_makanan"]);
+   $harga = ( $data["harga"]);
+   $tipe_menu = ($data["tipe_menu"]);
+   $Deskripsi = ( $data["Deskripsi"]);
+   $Stok = ( $data["Stok"]);
    $GambarLama =  $data["gambarLama"];
 
    // Pengecekan gambar lama atau gambar baru
@@ -171,11 +146,14 @@ function UpdateData($data) { // ini functionya
                Deskripsi = '$Deskripsi',
                Stok = '$Stok',
                Gambar = '$Gambar'
-               WHERE id_makanan = $id
+               WHERE id_makanan = '$id';
                ";
     
-   mysqli_query($db_kabita, $query); // ini line 180 nya
+//    printf($query);
+//    die;
 
+   mysqli_query($db_kabita, $query); 
+   
    return mysqli_affected_rows($db_kabita);
 }
 
