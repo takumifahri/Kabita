@@ -806,40 +806,40 @@ if (isset($_SESSION["username"])) {
                             <button class="bg-primary rounded-md px-4 py-1 font-poppins text-white mb-4 hover:bg-secondary">Beli</button>
                         </div>
                     </a>
-                    <a href="detail.html" class="flex flex-col w-full lg:w-60 bg-white rounded-lg shadow-md transition-transform duration-300 transform border-2 border-white hover:bg-gray-100 hover:scale-105">
-                        <img src="image/ayam-goreng.jpg" alt="Ayam Goreng" class="w-full object-cover mb-2 rounded-t-lg">
-                        <h3 class="text-sm lg:text-lg font-poppins font-semibold">Ayam Goreng</h3>
+                    <a href="detail.php" class="flex flex-col w-full lg:w-60 bg-white rounded-lg shadow-md transition-transform duration-300 transform hover:border-2 hover:border-first hover:-translate-y-1 delay-100">
+                        <img src="image/nasi.jpg" alt="Nasi" class="w-full object-cover mb-2 rounded-t-lg">
+                        <h3 class="text-sm lg:text-lg font-poppins font-semibold">Nasi</h3>
                         <div class="flex items-center justify-center gap-1">
                             <i class="fa-solid fa-star text-yellow-400"></i>
                             <div class="font-poppins text-gray-600">4.5</div>
                         </div>
-                        <div class="font-poppins text-gray-700 mb-2">Rp 10.000</div>
+                        <div class="font-poppins text-gray-700 mb-2">Rp 3.000</div>
                         <div class="mt-auto">
-                            <button class="bg-primary rounded-md px-4 py-1 font-poppins text-white mb-4 hover:bg-secondary">Beli</button>
+                            <button class="bg-first rounded-md px-4 py-1 font-poppins text-white mb-4 hover:bg-secondary">Beli</button>
                         </div>
                     </a>
-                    <a href="detail.html" class="flex flex-col w-full lg:w-60 bg-white rounded-lg shadow-md transition-transform duration-300 transform border-2 border-white hover:bg-gray-100 hover:scale-105">
-                        <img src="image/ayam-goreng.jpg" alt="Ayam Goreng" class="w-full object-cover mb-2 rounded-t-lg">
-                        <h3 class="text-sm lg:text-lg font-poppins font-semibold">Ayam Goreng</h3>
+                    <a href="detail.php" class="flex flex-col w-full lg:w-60 bg-white rounded-lg shadow-md transition-transform duration-300 transform hover:border-2 hover:border-first hover:-translate-y-1 delay-100">
+                        <img src="image/es-teh.jpg" alt="Es teh" class="w-full object-cover mb-2 rounded-t-lg">
+                        <h3 class="text-sm lg:text-lg font-poppins font-semibold">Es teh</h3>
                         <div class="flex items-center justify-center gap-1">
                             <i class="fa-solid fa-star text-yellow-400"></i>
                             <div class="font-poppins text-gray-600">4.5</div>
                         </div>
-                        <div class="font-poppins text-gray-700 mb-2">Rp 10.000</div>
+                        <div class="font-poppins text-gray-700 mb-2">Rp 5.000</div>
                         <div class="mt-auto">
-                            <button class="bg-primary rounded-md px-4 py-1 font-poppins text-white mb-4 hover:bg-secondary">Beli</button>
+                            <button class="bg-first rounded-md px-4 py-1 font-poppins text-white mb-4 hover:bg-secondary">Beli</button>
                         </div>
                     </a>
-                    <a href="detail.html" class="flex flex-col w-full lg:w-60 bg-white rounded-lg shadow-md transition-transform duration-300 transform border-2 border-white hover:bg-gray-100 hover:scale-105">
-                        <img src="image/ayam-goreng.jpg" alt="Ayam Goreng" class="w-full object-cover mb-2 rounded-t-lg">
-                        <h3 class="text-sm lg:text-lg font-poppins font-semibold">Ayam Goreng</h3>
+                    <a href="detail.php" class="flex flex-col w-full lg:w-60 bg-white rounded-lg shadow-md transition-transform duration-300 transform hover:border-2 hover:border-first hover:-translate-y-1 delay-100">
+                        <img src="image/ikan goreng.jpg" alt="Ikan Goreng" class="w-full object-cover mb-2 rounded-t-lg">
+                        <h3 class="text-sm lg:text-lg font-poppins font-semibold">Ikan Goreng</h3>
                         <div class="flex items-center justify-center gap-1">
                             <i class="fa-solid fa-star text-yellow-400"></i>
                             <div class="font-poppins text-gray-600">4.5</div>
                         </div>
                         <div class="font-poppins text-gray-700 mb-2">Rp 10.000</div>
                         <div class="mt-auto">
-                            <button class="bg-primary rounded-md px-4 py-1 font-poppins text-white mb-4 hover:bg-secondary">Beli</button>
+                            <button class="bg-first rounded-md px-4 py-1 font-poppins text-white mb-4 hover:bg-secondary">Beli</button>
                         </div>
                     </a>
                 </div>
