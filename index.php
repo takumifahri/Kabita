@@ -4,6 +4,8 @@ session_start();
 
 // Koneksi ke database
 require 'function.php';
+// kita lakukan pengecekan cookie\
+
 
 // Register
 if (isset($_POST["register"])) {
@@ -32,7 +34,6 @@ if (isset($_POST["login"])) {
 
         $pengecekan = mysqli_query($db_kabita, "SELECT * FROM users WHERE username = '$username'");
 
-        // ... rest of your code using $username
     } else {
         // Handle empty username (display error message)
     }
@@ -215,8 +216,8 @@ if (isset($_SESSION["username"])) {
                     </div>
                 </form>
                 <div class="mt-2 items-center">
-                    <input type="checkbox" id="remember-me">
-                    <label for="remember-me">Remember me</label>
+                    <input type="checkbox" name="Remember" id="Remember">
+                    <label for="Remember">Remember me</label>
                 </div>
                 <div class="divider">atau masuk dengan</div>
                 <button class="mt-2 flex justify-center items-center gap-2 w-full border-2 rounded-md py-1 text-black hover:bg-gray-100 hover:text-secondary" onclick="modal_register.showModal()">

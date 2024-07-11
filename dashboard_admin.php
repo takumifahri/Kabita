@@ -402,16 +402,19 @@ if (isset($_POST["tambah"])) {
                                 </div>
                                 <div class="flex flex-col mt-2">
                                     <button type="submit" name="update" id="EditData" class="p-2 rounded-md bg-first text-white hover:bg-secondary">Edit Data</button>
+                                 
+
+                            </div>
+                                </div>
+                            </form>
+                            <form method="dialog" class="modal-backdrop">
+                                <div class="flex flex-col">
+                                    <button class="p-2 rounded-md bg-first text-white hover:bg-secondary">close</button>  
                                 </div>
                             </form>
                         </div>
 
-                        <form method="dialog" class="modal-backdrop">
-                            <div class="flex flex-col mt-2">
-                                <button class="p-2 rounded-md bg-first text-white hover:bg-secondary">close</button>  
-                            </div>
-                            
-                        </form>
+                        
                     </dialog>
                     <!-- Modal Hapus Data -->
                     <!-- <dialog id="modalHapusData" class="modal">

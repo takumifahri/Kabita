@@ -146,7 +146,7 @@ function UpdateData($data) { // ini functionya
                Deskripsi = '$Deskripsi',
                Stok = '$Stok',
                Gambar = '$Gambar'
-               WHERE id_makanan = $id;
+               WHERE id_makanan = '$id'
                ";
     
 //    printf($query);
